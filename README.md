@@ -38,13 +38,21 @@ Please make sure that the sequencing reads are with good quality.
 
 The script requires the following R packages and tools to be installed:
 samtools (https://github.com/samtools/samtools/)
+
 STAR (https://github.com/alexdobin/STAR)
+
 BWA (https://bio-bwa.sourceforge.net/)
+
 dplyr (https://dplyr.tidyverse.org/)
+
 plyr (https://cran.r-project.org/web/packages/plyr/index.html)
+
 foreach (https://cran.r-project.org/web/packages/foreach/vignettes/foreach.html)
+
 Parellel (https://www.rdocumentation.org/packages/parallel/versions/3.6.2)
+
 FASTQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
 IGV (https://software.broadinstitute.org/software/igv/)
 
 
