@@ -11,7 +11,7 @@ cd ViralCellDetector
 # Usage
 First user need to run the Genome_index.sh bash code
 ```r
-sh Genome_index.sh
+bash Genome_index.sh
 ## This will download the Human genome and Viral genomes required for the script.
 ````
 
