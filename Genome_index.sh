@@ -25,4 +25,4 @@ mkdir ViralGenome
 wget https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz
 gunzip viral.1.1.genomic.fna.gz
 mv viral.1.1.genomic.fna viral_genome.fa
-bwa index index -a bwtsw viral_genome.fa viral_genome.fa
+bwa index -a bwtsw viral_genome.fa viral_genome.fa
