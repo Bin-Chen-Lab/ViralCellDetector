@@ -18,7 +18,7 @@ bash Genome_index.sh
 To use the script, you will need to have R and the necessary packages installed. Once you have the dependencies set up, you can run the script by calling following code
 ``` r
 ## basic example code
-Rscript ViralCellDetector sample_input.txt
+Rscript ViralCellDetector.R sample_input.txt
 ## The sample_inpit.txt file is the file containing the name of fastq input files. If a fastq input file is "input_file_1.fq and input_file_2.fq", then "sample_input.txt" file should have "input_file" name in first row.
 ```
 
