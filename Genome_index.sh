@@ -1,30 +1,30 @@
 #!/bin/bash
 
-# Create a directory for the human genome and move into it
-mkdir -p HumanGenome
-cd HumanGenome
+# Read input from external file
+INPUT_FILE="Genome_file.txt"
 
-# Download genome sequence and annotation files for GRCh38 (Gencode v29)
-wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/GRCh38.primary_assembly.genome.fa.gz
-wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.annotation.gtf.gz
+# Read values from the file
+FASTA_URL=$(sed -n '1p' $INPUT_FILE)
+GTF_URL=$(sed -n '2p' $INPUT_FILE)
 
-# Unzip the downloaded files and rename them for convenience
-gunzip GRCh38.primary_assembly.genome.fa.gz
-mv GRCh38.primary_assembly.genome.fa Genome.fa
+# Create a working directory and move into it
+mkdir -p "Ref_Genome"
+cd "Ref_Genome"
 
-gunzip gencode.v29.annotation.gtf.gz
-mv gencode.v29.annotation.gtf Genome.gtf
+# Download genome sequence and annotation files
+wget "$FASTA_URL" -O Genome.fa.gz
+wget "$GTF_URL" -O Genome.gtf.gz
+
+# Unzip and rename for consistency
+gunzip Genome.fa.gz
+gunzip Genome.gtf.gz
 
 # Build STAR genome index
-GENOMEDIR="$(pwd)"
-mkdir -p "$GENOMEDIR/STAR"
+#GENOMEDIR="$(pwd)"
+#mkdir -p "STAR"
+STAR --runThreadN 23  --runMode genomeGenerate --genomeDir ./  --genomeFastaFiles Genome.fa  --sjdbGTFfile Genome.gtf
 
-STAR --runThreadN 23 \
-     --runMode genomeGenerate \
-     --genomeDir "$GENOMEDIR/STAR" \
-     --genomeFastaFiles "$GENOMEDIR/Genome.fa" \
-     --sjdbGTFfile "$GENOMEDIR/Genome.gtf"
-
+echo "Reference Genome indexing completed."
 # Go back to the parent directory
 cd ..
 
@@ -34,8 +34,10 @@ cd ViralGenome
 
 # Download viral genome data
 wget https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz
+echo "Viral Genome downloaded."
 gunzip viral.1.1.genomic.fna.gz
 mv viral.1.1.genomic.fna viral_genome.fa
-
 # Index the viral genome using BWA
 bwa index -a bwtsw viral_genome.fa
+
+echo "Viral Genome indexing completed."
