@@ -47,13 +47,6 @@ dplyr (https://dplyr.tidyverse.org/)
 
 plyr (https://cran.r-project.org/web/packages/plyr/index.html)
 
-foreach (https://cran.r-project.org/web/packages/foreach/vignettes/foreach.html)
-
-Parellel (https://www.rdocumentation.org/packages/parallel/versions/3.6.2)
-
-FASTQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-
-IGV (https://software.broadinstitute.org/software/igv/)
 
 
 Make sure these packages are installed before running the script.
