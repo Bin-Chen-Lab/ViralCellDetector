@@ -56,17 +56,17 @@ process_sample <- function(sam) {
 
   # Filter long continuous regions
   system(paste("paste", paste0(sam,"_continuous_region.txt"), paste0(sam,"_ids.txt"),
-               "|awk '{if($5 >=100)print$1\"\\t\"$3\"\\t\"$4\"\\t\"$5}' >", paste0(sam,"_continuous_region_100.txt")))
+               "|awk '{if($5 >=500)print$1\"\\t\"$3\"\\t\"$4\"\\t\"$5}' >", paste0(sam,"_continuous_region_500.txt")))
 
   # Extract virus names
   system(paste("awk '{print $2}'", paste0(sam, "_viruses_count.txt"), ">", paste0(sam, "_viruses_names.txt")))
 
   # Final virus list
-  system(paste("fgrep -wf", paste0(sam, "_viruses_names.txt"), paste0(sam,"_continuous_region_100.txt"),
+  system(paste("fgrep -wf", paste0(sam, "_viruses_names.txt"), paste0(sam,"_continuous_region_500.txt"),
                ">", paste0(sam,"_final_virus_list.txt")))
 
   # Cleanup
-  system(paste("rm -f", paste0(sam,"_ids.txt"), paste0(sam,"_continuous_region_100.txt"), paste0(sam, "_viruses_names.txt")))
+  system(paste("rm -f", paste0(sam,"_ids.txt"), paste0(sam,"_continuous_region_500.txt"), paste0(sam, "_viruses_names.txt")))
 }
 
 # Main script execution
