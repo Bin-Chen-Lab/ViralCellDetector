@@ -79,7 +79,7 @@ Rscript ViralCellDetector.R sample_input.txt
   - Number of mapped reads
   - Covered genomic regions
 
-These results can be loaded into IGV or other genome browsers for visualization.
+The viral mapping file can be loaded into IGV or other genome browsers for visualization.
 
 ---
 
