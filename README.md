@@ -1,6 +1,6 @@
 # ViralCellDetector
 
-**ViralCellDetector** is an R-based pipeline designed to detect viral contamination in RNA-seq samples. It accepts raw RNA-seq FASTQ files as input and outputs a list of putative viruses identified in the sample. The final results can be visualized using genome browsers such as IGV (Integrative Genomics Viewer).
+**ViralCellDetector** is an R-based pipeline designed to detect viral contamination in RNA-seq samples in any host sample. It accepts raw RNA-seq FASTQ files as input and outputs a list of putative viruses identified in the sample. The final results can be visualized using genome browsers such as IGV (Integrative Genomics Viewer).
 
 ---
 
